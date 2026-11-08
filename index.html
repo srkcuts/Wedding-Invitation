@@ -411,7 +411,8 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
 </main>
 
 <canvas id="fx" aria-hidden="true"></canvas>
-<button class="snd" id="snd" type="button" aria-pressed="false" aria-label="Play soft music" hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 12V4l6-1.5v8"/><circle cx="4.5" cy="12" r="1.6"/><circle cx="10.5" cy="10.5" r="1.6"/></svg></button>
+<audio id="bgm" src="music.mp3" loop preload="auto"></audio>
+<button class="snd" id="snd" type="button" aria-pressed="false" aria-label="Play music"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 12V4l6-1.5v8"/><circle cx="4.5" cy="12" r="1.6"/><circle cx="10.5" cy="10.5" r="1.6"/></svg></button>
 
 <script>
 (function () {
@@ -542,29 +543,26 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
   }
   tick(); cdTimer = setInterval(tick, 1000);
 
-  /* soft music, only after a tap */
-  var snd = document.getElementById('snd'), ac = null, timer = null, on = false, n = 0;
-  var chords = [[261.6, 329.6, 392], [220, 261.6, 329.6], [174.6, 220, 261.6], [196, 246.9, 392]];
-  function chord() {
-    var t = ac.currentTime, c = chords[n++ % chords.length];
-    c.forEach(function (f, k) {
-      var o = ac.createOscillator(), g = ac.createGain();
-      o.type = 'sine'; o.frequency.value = f; o.detune.value = k * 3;
-      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.035, t + 1.4); g.gain.linearRampToValueAtTime(0, t + 4.4);
-      o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 4.6);
-    });
+  /* background music: starts when the seal is broken, button mutes / unmutes */
+  var bgm = document.getElementById('bgm'), snd = document.getElementById('snd'), wantOn = false, fadeT = null, MUSIC_VOL = .6;
+  function setSnd(on) { snd.setAttribute('aria-pressed', String(on)); snd.setAttribute('aria-label', on ? 'Pause music' : 'Play music'); }
+  function fadeTo(v, ms, done) {
+    clearInterval(fadeT);
+    var from = bgm.volume, t0 = Date.now();
+    fadeT = setInterval(function () {
+      var k = Math.min(1, (Date.now() - t0) / ms);
+      try { bgm.volume = from + (v - from) * k; } catch (e) { /* volume is read-only on some phones */ }
+      if (k >= 1) { clearInterval(fadeT); if (done) done(); }
+    }, 50);
   }
-  var AudioCtx = window.AudioContext || window.webkitAudioContext;
-  if (AudioCtx) snd.hidden = false;
-  function stopMusic() { clearInterval(timer); on = false; snd.setAttribute('aria-pressed', 'false'); snd.setAttribute('aria-label', 'Play soft music'); }
-  document.addEventListener('visibilitychange', function () { if (document.hidden && on) stopMusic(); });
-  snd.addEventListener('click', function () {
-    try {
-      if (!on) { ac = ac || new AudioCtx(); if (ac.resume) ac.resume(); chord(); timer = setInterval(chord, 3600); on = true; }
-      else { clearInterval(timer); on = false; }
-      snd.setAttribute('aria-pressed', String(on)); snd.setAttribute('aria-label', on ? 'Stop music' : 'Play soft music');
-    } catch (err) { /* audio unavailable */ }
-  });
+  function startMusic() {
+    wantOn = true; setSnd(true);
+    try { bgm.volume = 0; var pr = bgm.play(); if (pr && pr.catch) pr.catch(function () { wantOn = false; setSnd(false); }); fadeTo(MUSIC_VOL, 2000); } catch (e) { wantOn = false; setSnd(false); }
+  }
+  function stopMusic() { wantOn = false; setSnd(false); fadeTo(0, 500, function () { bgm.pause(); }); }
+  document.querySelector('.seal').addEventListener('click', function () { if (!wantOn && !bgm.dataset.touched) startMusic(); });
+  snd.addEventListener('click', function () { bgm.dataset.touched = '1'; if (wantOn) stopMusic(); else startMusic(); });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) { bgm.pause(); } else if (wantOn) { try { bgm.play(); } catch (e) { /* ignore */ } } });
 
   applyLang(lang);
 })();
