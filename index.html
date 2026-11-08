@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#34091f">
+<meta name="theme-color" content="#f5ead8">
 <title>Immanuel &amp; Preethi – The Holy Wedding</title>
 <meta name="description" content="You are warmly invited to the Holy Wedding of S. Immanuel &amp; P. Preethi Esther. Monday, 7 December 2026, 05:00 PM, Elim New Jerusalem Church, Tondiarpet, Chennai.">
 <meta property="og:type" content="website">
@@ -230,6 +230,62 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
 :root[lang="ta"] .script { font-style: normal; }
 :root[lang="ta"] .big-date .num { line-height: 1; }
 
+
+/* how-to-open instruction card */
+.how { width: 100%; max-width: 420px; align-self: center; padding: 14px 18px; border: 1px dashed var(--gold-hi); background: rgba(86,22,65,.7); display: flex; flex-direction: column; gap: 8px; text-align: left; transition: opacity .6s, transform .6s; }
+.how.gone { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+.how[hidden] { display: none; }
+.how h2 { margin: 0; font-family: var(--font-label); font-weight: 600; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-hi); }
+.how ol { margin: 0; padding: 0; list-style: none; counter-reset: st; display: flex; flex-direction: column; gap: 6px; }
+.how li { counter-increment: st; display: flex; gap: 10px; align-items: baseline; font-size: 17px; line-height: 1.4; }
+.how li::before { content: counter(st); flex: none; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--gold-hi); color: var(--gold-hi); font-family: var(--font-label); font-size: 12px; display: inline-grid; place-items: center; transform: translateY(-1px); }
+:root[lang="ta"] .how h2 { letter-spacing: .03em; text-transform: none; font-size: 14px; }
+:root[lang="ta"] .how li { font-size: 15px; line-height: 1.6; }
+
+/* ===== cream + rose theme (matches the invitation video) ===== */
+:root { --bg:#f5ead8; --bg-deep:#ead9bd; --panel:#fbf3e6; --wine:#8a3a4a; --wine-hi:#a64e5e; --gold:#b8863b; --gold-hi:#94641d; --ivory:#3b1a14; --ivory-dim:#6d4a3c; --plum-ink:#fbf3e6; --line:rgba(168,119,44,.6); --paper-a:#efd2c8; --paper-b:#e3bcb0; --paper-c:#d3a598; --glow:rgba(184,134,59,.3); color-scheme: light; }
+body { background-image: radial-gradient(70% 38% at 50% 0%, rgba(222,160,160,.38), transparent 72%), radial-gradient(80% 30% at 50% 100%, rgba(150,160,110,.25), transparent 72%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23B8863B' stroke-opacity='.18' stroke-width='1'%3E%3Cpath d='M40 8l32 32-32 32L8 40z'/%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E"); }
+#archFill stop:nth-child(1) { stop-color:#f7e6da; } #archFill stop:nth-child(2) { stop-color:#efd0c3; }
+#goldG stop:nth-child(1) { stop-color:#c8963f; } #goldG stop:nth-child(2) { stop-color:#a8772c; }
+.hero-arch svg:first-child circle[r="44"] { fill:#fbf3e6; }
+.hero-arch use[href="#cross"] { fill:#7a2a3a; }
+.hero-arch use.fl[fill="#f7f0e6"] { fill:#c46b78; }
+#stars use { fill:#b8863b; }
+#leavesL, #leavesR { fill:#6f7a3f; } #brL, #brR { stroke:#6f7a3f; }
+.std-art text:nth-of-type(1), .std-art text:nth-of-type(3) { fill:#a8772c; stroke:#a8772c; }
+.std-art text:nth-of-type(2) { fill:#5a1f1f; stroke:#5a1f1f; }
+.std-art g[stroke] { stroke:#a8772c; }
+.hero-arch svg.std-art { filter: drop-shadow(0 1px 3px rgba(255,255,255,.6)); }
+.badge, .seal svg { color:#f3d9a0; } .seal svg { fill:#f3d9a0; }
+.rcard { box-shadow: inset 0 0 0 6px var(--panel), inset 0 0 0 7px var(--line), 0 12px 26px rgba(90,50,30,.18); }
+.env { filter: drop-shadow(0 10px 14px rgba(90,50,30,.28)); }
+.btn-close:hover { color:#fbf3e6; }
+/* lighter hero: shadow only on the still arch, not on the rotating mandala */
+.hero-arch { filter: none; }
+.hero-arch > svg:first-child > path:first-of-type { filter: drop-shadow(0 14px 18px rgba(90,50,30,.25)); }
+.mandala { will-change: transform; }
+
+/* buttons row */
+.btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 10px; }
+button.btn { background: transparent; cursor: pointer; }
+
+/* full-screen cover */
+.cover { position: fixed; inset: 0; z-index: 30; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 16px; text-align: center; background: linear-gradient(rgba(246,236,220,.95), rgba(246,236,220,.98)), url(poster.jpg) center / cover; transition: opacity .9s ease, transform .9s ease; }
+.cover.gone { opacity: 0; transform: scale(1.04); pointer-events: none; }
+.cover[hidden] { display: none; }
+.cover .lang { position: absolute; top: max(18px, env(safe-area-inset-top)); }
+.cover-in { display: flex; flex-direction: column; align-items: center; gap: 16px; max-width: 420px; }
+.cover-names { margin: 0; font-family: "Pinyon Script", cursive; font-weight: 400; font-size: clamp(48px, 15vw, 68px); line-height: 1.1; color: var(--gold-hi); }
+.cover-names span { display: block; font-size: .6em; color: var(--wine); line-height: 1; }
+.cover-date { font-size: 22px; color: var(--ivory-dim); }
+.cover-btn { all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 22px; -webkit-tap-highlight-color: transparent; }
+.cover-btn:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 8px; border-radius: 12px; }
+.seal-ball { width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 35% 30%, var(--wine-hi), var(--wine) 70%); box-shadow: 0 6px 16px rgba(90,30,40,.4), inset 0 0 0 3px rgba(0,0,0,.08), inset 0 0 0 5px rgba(255,210,140,.5); animation: sealPulse 2.8s ease-in-out infinite; }
+.seal-ball svg { width: 26px; height: 36px; fill: #f3d9a0; }
+@keyframes sealPulse { 0% { box-shadow: 0 0 0 0 rgba(166,78,94,.5), 0 6px 16px rgba(90,30,40,.4), inset 0 0 0 3px rgba(0,0,0,.08), inset 0 0 0 5px rgba(255,210,140,.5); } 70%, 100% { box-shadow: 0 0 0 20px rgba(166,78,94,0), 0 6px 16px rgba(90,30,40,.4), inset 0 0 0 3px rgba(0,0,0,.08), inset 0 0 0 5px rgba(255,210,140,.5); } }
+.cover-tap { font-family: var(--font-label); font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold-hi); padding-left: .3em; }
+:root[lang="ta"] .cover-tap { letter-spacing: .03em; text-transform: none; font-size: 15px; padding-left: 0; }
+.cv-open .snd { visibility: hidden; }
 </style>
 </head>
 <body>
@@ -251,6 +307,7 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
     <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5z"/><path d="M9 4v13M15 6.5v13"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></symbol>
     <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></symbol>
     <symbol id="i-olive" viewBox="0 0 24 24"><path d="M3 21C8 15 13 11 20 4"/><path d="M8 16c-3 0-4.5-2-4.5-4 3 0 4.5 1.5 4.5 4zM12 12c-3 0-4.5-2-4.5-4 3 0 4.5 1.5 4.5 4zM16 8c-3 0-4.5-2-4.5-4 3 0 4.5 1.5 4.5 4zM10.5 15.5c1 2.5 3.3 3.5 5.5 3-.5-2.4-2.8-3.5-5.5-3zM14.5 11.5c1 2.5 3.3 3.5 5.5 3-.5-2.4-2.8-3.5-5.5-3z"/></symbol>
   </defs>
 </svg>
@@ -258,6 +315,8 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
 <main>
 
   <div class="lang" role="group" aria-label="Language / மொழி"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="ta" aria-pressed="false">தமிழ்</button></div>
+
+
 
   <!-- hero -->
   <section id="s-hero" aria-labelledby="h-hero">
@@ -398,7 +457,11 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
       <div><b id="cd-m">--</b><span data-ta="நிமிடம்">Mins</span></div>
       <div><b id="cd-s">--</b><span data-ta="விநாடி">Secs</span></div>
     </div>
-    <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Wedding+of+S.+Immanuel+%26+P.+Preethi+Esther&amp;dates=20261207T113000Z/20261207T163000Z&amp;location=Elim+New+Jerusalem+Church,+Tondiarpet,+Chennai+600081&amp;details=Holy+Wedding+05:00+PM.+Reception+07:30+PM+onwards+at+SS+Mahal+(Near+Elim+Church),+Tondiarpet." target="_blank" rel="noopener"><svg class="ico"><use href="#i-plus"/></svg><span data-ta="நாட்காட்டியில் சேர்">Add to calendar</span></a>
+    <div class="btns">
+      <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Wedding+of+S.+Immanuel+%26+P.+Preethi+Esther&amp;dates=20261207T113000Z/20261207T163000Z&amp;location=Elim+New+Jerusalem+Church,+Tondiarpet,+Chennai+600081&amp;details=Holy+Wedding+05:00+PM.+Reception+07:30+PM+onwards+at+SS+Mahal+(Near+Elim+Church),+Tondiarpet." target="_blank" rel="noopener"><svg class="ico"><use href="#i-plus"/></svg><span data-ta="நாட்காட்டியில் சேர்">Add to calendar</span></a>
+      <button class="btn" id="ics" type="button"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg><span data-ta="Apple நாட்காட்டி (.ics)">Apple Calendar (.ics)</span></button>
+      <button class="btn" id="share" type="button"><svg class="ico" aria-hidden="true"><use href="#i-share"/></svg><span data-ta="அழைப்பிதழை பகிர்">Share invitation</span></button>
+    </div>
     <div class="frame close-card rv" style="margin-top:26px">
       <i></i><i></i><i></i><i></i>
       <svg class="cross-ico" viewBox="0 0 24 34" aria-hidden="true"><use href="#cross"/></svg>
@@ -409,6 +472,17 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
     </div>
   </section>
 </main>
+
+<div class="cover" id="cover" role="dialog" aria-modal="true" aria-label="Invitation cover">
+  <div class="lang" role="group" aria-label="Language / மொழி"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="ta" aria-pressed="false">தமிழ்</button></div>
+  <div class="cover-in">
+    <svg class="cross-ico" viewBox="0 0 24 34" aria-hidden="true" style="fill:var(--gold-hi)"><use href="#cross"/></svg>
+    <p class="eyebrow" data-ta="பரிசுத்த மெய்விவாக அழைப்பிதழ்">Holy Wedding Invitation</p>
+    <h2 class="cover-names" style="font-weight:400">Immanuel<span>&amp;</span>Preethi</h2>
+    <p class="cover-date" data-ta="திங்கள், 7 டிசம்பர் 2026">Monday, 7 December 2026</p>
+    <button class="cover-btn" id="cover-btn" type="button" aria-label="Open the invitation"><span class="seal-ball"><svg viewBox="0 0 24 34" aria-hidden="true"><use href="#cross"/></svg></span><span class="cover-tap" data-ta="திறக்கத் தொடவும்">Tap to open</span></button>
+  </div>
+</div>
 
 <canvas id="fx" aria-hidden="true"></canvas>
 <audio id="bgm" src="music.mp3" loop preload="auto"></audio>
@@ -468,7 +542,7 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function size() { var d = Math.min(window.devicePixelRatio || 1, 2); cv.width = innerWidth * d; cv.height = innerHeight * d; cx.setTransform(d, 0, 0, d, 0, 0); }
   size(); addEventListener('resize', size);
-  var cols = ['#ebae55', '#f7f0e6', '#d08529', '#f4c98a', '#a82e66'];
+  var cols = ['#d9a441', '#e7a1a8', '#c98a2c', '#f0c27a', '#a64e5e'], pcols = ['#e7a1a8', '#f1c3b8', '#d98a94', '#e9b872'];
   function burst(x, y, n) {
     if (still) return;
     for (var i = 0; i < n; i++) {
@@ -477,13 +551,13 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
     }
   }
   var amb = [];
-  if (!still) for (var ai = 0; ai < 16; ai++) amb.push({ x: Math.random() * innerWidth, y: Math.random() * innerHeight, r: 3 + Math.random() * 4, vy: .25 + Math.random() * .5, ph: Math.random() * 6, rot: Math.random() * 6, c: cols[(Math.random() * 3) | 0] });
+  if (!still) for (var ai = 0; ai < 16; ai++) amb.push({ x: Math.random() * innerWidth, y: Math.random() * innerHeight, r: 3 + Math.random() * 4, vy: .25 + Math.random() * .5, ph: Math.random() * 6, rot: Math.random() * 6, c: pcols[(Math.random() * 4) | 0] });
   function step() {
     cx.clearRect(0, 0, innerWidth, innerHeight);
     amb.forEach(function (p) {
       p.y += p.vy; p.rot += .01; p.ph += .012; var x = p.x + Math.sin(p.ph) * 26;
       if (p.y > innerHeight + 10) { p.y = -10; p.x = Math.random() * innerWidth; }
-      cx.globalAlpha = .45; cx.fillStyle = p.c; cx.beginPath(); cx.ellipse(x, p.y, p.r * 1.8, p.r * .8, p.rot, 0, 6.283); cx.fill();
+      cx.globalAlpha = .7; cx.fillStyle = p.c; cx.save(); cx.translate(x, p.y); cx.rotate(p.rot); var R = p.r * 2.4; cx.beginPath(); cx.moveTo(-R, 0); cx.bezierCurveTo(-R * .5, -R * .95, R * .6, -R * .7, R, 0); cx.bezierCurveTo(R * .6, R * .7, -R * .5, R * .95, -R, 0); cx.fill(); cx.restore();
     });
     parts = parts.filter(function (p) { return p.life > 0; });
     parts.forEach(function (p) {
@@ -560,9 +634,33 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
     try { bgm.volume = 0; var pr = bgm.play(); if (pr && pr.catch) pr.catch(function () { wantOn = false; setSnd(false); }); fadeTo(MUSIC_VOL, 2000); } catch (e) { wantOn = false; setSnd(false); }
   }
   function stopMusic() { wantOn = false; setSnd(false); fadeTo(0, 500, function () { bgm.pause(); }); }
-  document.querySelector('.seal').addEventListener('click', function () { if (!wantOn && !bgm.dataset.touched) startMusic(); });
+  document.querySelector('.seal').addEventListener('click', function () {
+    if (!wantOn && !bgm.dataset.touched) startMusic();
+    var how = document.getElementById('how'); if (how) { how.classList.add('gone'); setTimeout(function () { how.hidden = true; }, 700); }
+  });
   snd.addEventListener('click', function () { bgm.dataset.touched = '1'; if (wantOn) stopMusic(); else startMusic(); });
   document.addEventListener('visibilitychange', function () { if (document.hidden) { bgm.pause(); } else if (wantOn) { try { bgm.play(); } catch (e) { /* ignore */ } } });
+
+  /* cover, .ics and share */
+  var cover = document.getElementById('cover'), root = document.documentElement;
+  root.classList.add('cv-open'); root.style.overflow = 'hidden';
+  document.getElementById('cover-btn').addEventListener('click', function () {
+    root.style.overflow = ''; root.classList.remove('cv-open'); cover.classList.add('gone');
+    setTimeout(function () { cover.hidden = true; }, 950);
+    if (!wantOn && !bgm.dataset.touched) startMusic();
+    window.scrollTo(0, 0);
+  });
+  document.getElementById('ics').addEventListener('click', function () {
+    var L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//ENJC//Wedding Invitation//EN', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT', 'UID:wedding-immanuel-preethi-20261207@enjc', 'DTSTAMP:20261108T000000Z', 'DTSTART:20261207T113000Z', 'DTEND:20261207T163000Z', 'SUMMARY:Wedding of S. Immanuel & P. Preethi Esther', 'LOCATION:Elim New Jerusalem Church\\, Tondiarpet\\, Chennai 600081', 'DESCRIPTION:Holy Wedding 5:00 PM. Reception 7:30 PM onwards at S.S. Mahal\\, Tondiarpet.', 'BEGIN:VALARM', 'TRIGGER:-P1D', 'ACTION:DISPLAY', 'DESCRIPTION:Wedding tomorrow', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'];
+    var u = URL.createObjectURL(new Blob([L.join('\r\n')], { type: 'text/calendar' })), a = document.createElement('a');
+    a.href = u; a.download = 'wedding-invitation.ics'; document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(u); a.remove(); }, 1000);
+  });
+  document.getElementById('share').addEventListener('click', function () {
+    var text = 'You are invited to the Holy Wedding of S. Immanuel & P. Preethi Esther. Monday, 7 December 2026, 5:00 PM, Elim New Jerusalem Church, Tondiarpet, Chennai.', url = location.href.split('#')[0];
+    if (navigator.share) navigator.share({ title: document.title, text: text, url: url }).catch(function () {});
+    else window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), '_blank', 'noopener');
+  });
 
   applyLang(lang);
 })();
