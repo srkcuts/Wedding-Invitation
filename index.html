@@ -628,7 +628,7 @@ html { scroll-snap-type: y proximity; }
   document.querySelector('.seal').addEventListener('click', function () { if (!still) setTimeout(playVid, 900); });
   vid.addEventListener('click', function () { if (vid.paused) playVid(); else vid.pause(); });
   wire('s-env', '.seal', 80); wire('s-church', '.rc-btn', 80, true); wire('s-hall', '.rc-btn', 70, true);
-  /* automatic opening: when a card sits in the middle of the screen for about 2 seconds, it opens by itself */
+  /* automatic opening: when a card sits in the middle of the screen for about 1 seconds, it opens by itself */
   function autoOpen(id, btnSel) {
     var sec = document.getElementById(id), btn = sec.querySelector(btnSel), t = null, done = false;
     btn.addEventListener('click', function () { done = true; clearTimeout(t); });
