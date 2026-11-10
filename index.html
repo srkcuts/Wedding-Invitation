@@ -292,6 +292,69 @@ button.btn { background: transparent; cursor: pointer; }
 .rings { width: 40px; height: 40px; object-fit: contain; flex: none; }
 .rings.cover-rings { width: 72px; height: 72px; }
 .mi { display: block; width: 44px; height: 44px; background: #f3d9a0; -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; }
+
+/* ===== new hero: monogram + big Save the Date + roses ===== */
+.hero-arch { position: relative; width: min(100%, 360px); aspect-ratio: 360 / 690; container-type: inline-size; border-radius: 50cqw 50cqw 0 0; background: linear-gradient(#fdf6ea, #f6e4d4 72%, #efd2c3); border: .85cqw solid #c0903d; border-bottom-width: .85cqw; box-shadow: 0 18px 26px rgba(90,50,30,.22); overflow: hidden; filter: none; }
+.hero-arch::before { content: ""; position: absolute; inset: 2.8cqw; border-radius: 47cqw 47cqw 0 0; border: 1px solid rgba(168,119,44,.7); pointer-events: none; z-index: 3; }
+.hero-arch::after { content: ""; position: absolute; inset: 5.6cqw; border-radius: 44.5cqw 44.5cqw 0 0; border: 1px dashed rgba(168,119,44,.35); pointer-events: none; z-index: 3; }
+.hero-arch > * { position: absolute; margin: 0; }
+.hero-arch > .sr-only { position: absolute; }
+.h-glow { left: 8.5%; top: 8.7%; width: 83cqw; height: 83cqw; background: radial-gradient(circle, rgba(255,222,160,.65), transparent 68%); }
+.h-sp { color: #c9972f; font-size: 3.6cqw; line-height: 1; animation: twinkle 3s ease-in-out infinite alternate; }
+.h-sp.sm { font-size: 2.5cqw; animation-delay: 1.2s; }
+.h-top { top: 8.4%; left: 0; width: 100%; text-align: center; font-family: var(--font-label); font-size: 3.05cqw; letter-spacing: .34em; text-transform: uppercase; color: var(--gold-hi); padding-left: .34em; z-index: 2; }
+:root[lang="ta"] .h-top { letter-spacing: .06em; text-transform: none; font-size: 3.6cqw; padding-left: 0; }
+.h-mono { left: 30.5%; top: 11.3%; width: 39%; height: auto; z-index: 2; animation: monoIn 1.2s cubic-bezier(.2,.7,.2,1) .2s both; }
+.hero-arch img.std-art { left: 16.1%; top: 36.2%; width: 67.8%; height: auto; z-index: 2; filter: drop-shadow(0 2px 4px rgba(120,20,20,.15)); animation: stdIn 1.4s cubic-bezier(.2,.7,.2,1) .7s both; }
+.h-names { top: 60.3%; left: 0; width: 100%; text-align: center; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 4.2cqw; letter-spacing: .12em; white-space: nowrap; color: #4a1814; z-index: 2; }
+.h-date { top: 64.7%; left: 0; width: 100%; text-align: center; font-family: var(--font-label); font-size: 3.3cqw; letter-spacing: .3em; color: var(--gold-hi); padding-left: .3em; z-index: 2; }
+.h-rose { bottom: 0; height: auto; z-index: 1; animation: fadeUp 1.4s ease .9s both; }
+.h-rose.r { right: 0; width: 36%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 42%), linear-gradient(to right, transparent 0, #000 60%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to bottom, transparent 0, #000 42%), linear-gradient(to right, transparent 0, #000 60%); mask-composite: intersect; }
+.h-rose.l { left: 0; width: 33%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 42%), linear-gradient(to left, transparent 0, #000 60%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to bottom, transparent 0, #000 42%), linear-gradient(to left, transparent 0, #000 60%); mask-composite: intersect; }
+@keyframes monoIn { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes fadeUp { from { opacity: 0; } to { opacity: 1; } }
+
+/* ===== details inside the arch, fit-to-screen, snap ===== */
+.hero-arch { aspect-ratio: 360 / 760; width: min(100%, 360px, calc((100vh - 140px) * .4737)); width: min(100%, 360px, calc((100svh - 140px) * .4737)); min-width: 220px; }
+.h-glow { top: 7.9%; }
+.h-top { top: 7.6%; } .h-mono { top: 10.3%; } .hero-arch img.std-art { top: 32.9%; } .h-names { top: 54.2%; }
+.h-rose.r { width: 31%; } .h-rose.l { width: 27.8%; }
+.h-gl { left: 13.6%; top: 59.5%; width: 72.8%; padding: .5cqw 4.4cqw; background: rgba(253,246,234,.74); border: 1px solid rgba(168,119,44,.45); z-index: 4; display: flex; flex-direction: column; text-align: left; animation: fadeUp 1.2s ease 1.1s both; }
+.h-gl > div { display: flex; align-items: center; gap: 3.9cqw; padding: 2.3cqw 0; }
+.h-gl > div + div { border-top: 1px solid rgba(168,119,44,.3); }
+.h-gl .ico { width: 6.7cqw; height: 6.7cqw; color: var(--gold-hi); }
+.h-gl small { display: block; font-family: var(--font-label); font-size: 2.5cqw; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-hi); }
+.h-gl b { display: block; font-weight: 500; font-size: 4.7cqw; line-height: 1.2; color: var(--ivory); }
+:root[lang="ta"] .h-gl small { letter-spacing: .04em; text-transform: none; font-size: 3cqw; }
+:root[lang="ta"] .h-gl b { font-size: 4cqw; line-height: 1.4; }
+.h-hint { left: 0; width: 100%; bottom: 6.3%; display: flex; align-items: center; justify-content: center; gap: 2.2cqw; font-family: var(--font-label); font-size: 2.9cqw; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-hi); z-index: 4; padding-left: .24em; }
+:root[lang="ta"] .h-hint { letter-spacing: .03em; text-transform: none; font-size: 3.5cqw; padding-left: 0; }
+.h-hint .dot { width: 2.2cqw; height: 2.2cqw; border-radius: 50%; background: var(--gold-hi); animation: ping 2s ease-out infinite; flex: none; }
+.h-hint .chev { width: 4.4cqw; height: 4.4cqw; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; animation: bob 1.6s ease-in-out infinite; }
+@keyframes bob { 0%, 100% { transform: translateY(-1px); } 50% { transform: translateY(3px); } }
+html { scroll-snap-type: y proximity; }
+#s-env, #s-church, #s-hall { scroll-snap-align: center; }
+.h-gl .ico, .h-hint .chev { position: static; inset: auto; overflow: visible; flex: none; }
+.h-gl .ico { width: 6.7cqw; height: 6.7cqw; }
+.h-hint .chev { width: 4.4cqw; height: 4.4cqw; }
+
+/* shorter phones: tighter opened cards so a whole card fits the screen */
+@media (max-height: 800px) {
+  .rc-btn { padding: 22px 16px; gap: 8px; }
+  .badge { width: 64px; } .mi { width: 34px; height: 34px; }
+  .rc-body { padding: 16px 16px 18px; gap: 6px; }
+  .big-date .num { font-size: 60px; } .big-date .day, .big-date .mon { font-size: 12px; }
+  .time { font-size: 21px; } .place { font-size: 22px; } .addr { font-size: 16px; line-height: 1.35; }
+  .btn { padding: 9px 16px; margin-top: 2px; } .btn-close { min-height: 36px; margin-top: 6px; }
+  section { gap: 10px; }
+}
+@media (max-height: 700px) {
+  .rc-btn { padding: 14px 14px; gap: 6px; } .badge { width: 52px; } .mi { width: 28px; height: 28px; }
+  .rc-body { padding: 10px 14px 12px; gap: 4px; }
+  .big-date .num { font-size: 46px; } .time { font-size: 19px; } .place { font-size: 20px; } .addr { font-size: 15px; }
+  .rc-title { font-size: 24px !important; }
+  .rcard { box-shadow: inset 0 0 0 5px var(--panel), inset 0 0 0 6px var(--line), 0 8px 18px rgba(90,50,30,.18); }
+}
 </style>
 </head>
 <body>
@@ -328,45 +391,23 @@ button.btn { background: transparent; cursor: pointer; }
   <section id="s-hero" aria-labelledby="h-hero">
     <p class="eyebrow" data-ta="தேவனுக்கு மகிமை!">Glory to God!</p>
     <div class="hero-arch" id="hero">
-      <svg viewBox="0 0 340 440" aria-hidden="true">
-        <defs>
-          <linearGradient id="archFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6a1a4c"/><stop offset="1" stop-color="#4a1236"/></linearGradient>
-          <linearGradient id="goldG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ebae55"/><stop offset="1" stop-color="#d08529"/></linearGradient>
-          <radialGradient id="cglow"><stop offset="0" stop-color="#ffd48a" stop-opacity=".75"/><stop offset="1" stop-color="#ffd48a" stop-opacity="0"/></radialGradient>
-        </defs>
-        <path d="M10 438V176C10 96 90 32 170 6C250 32 330 96 330 176V438Z" fill="url(#archFill)" stroke="url(#goldG)" stroke-width="3"/>
-        <path d="M24 438V178C24 104 98 48 170 22C242 48 316 104 316 178V438Z" fill="none" stroke="#d08529" stroke-opacity=".75" stroke-width="1"/>
-        <path d="M34 438V180C34 112 104 60 170 36C236 60 306 112 306 180V438Z" fill="none" stroke="#d08529" stroke-opacity=".3" stroke-width="1" stroke-dasharray="2 5"/>
-        <circle cx="170" cy="150" r="96" fill="url(#cglow)"/>
-        <g id="mand1" class="mandala" fill="#d08529" fill-opacity=".22"></g>
-        <g id="mand2" class="mandala rev" fill="none" stroke="#ebae55" stroke-opacity=".5" stroke-width="1">
-          <circle cx="170" cy="150" r="64" stroke-dasharray="3 6"/><circle cx="170" cy="150" r="82" stroke-dasharray="1 7"/>
-        </g>
-        <circle cx="170" cy="150" r="44" fill="#44102f" stroke="#ebae55" stroke-width="1.5"/>
-        <circle cx="170" cy="150" r="39" fill="none" stroke="#d08529" stroke-opacity=".6" stroke-width="1"/>
-        <use href="#cross" x="156" y="127" width="28" height="40" fill="#f7f0e6"/>
-        <g id="stars" fill="#ebae55"></g>
-        <path id="brL" class="draw" pathLength="1" d="M38 430C26 372 32 306 82 244" fill="none" stroke="#8e9459" stroke-width="2.2" stroke-linecap="round"/>
-        <path id="brR" class="draw" pathLength="1" d="M302 430C314 372 308 306 258 244" fill="none" stroke="#8e9459" stroke-width="2.2" stroke-linecap="round"/>
-        <g id="leavesL" fill="#8e9459"></g><g id="leavesR" fill="#8e9459"></g>
-        <g color="#ebae55" fill="#ebae55">
-          <use class="fl" style="--i:0" href="#flower" x="22" y="392" width="46" height="46"/>
-          <use class="fl" style="--i:1" href="#flower" x="272" y="392" width="46" height="46"/>
-          <use class="fl" style="--i:2" href="#flower" x="62" y="262" width="26" height="26" fill="#f7f0e6"/>
-          <use class="fl" style="--i:3" href="#flower" x="252" y="262" width="26" height="26" fill="#f7f0e6"/>
-        </g>
-      </svg>
-      <img class="std-art" src="save-the-date.png" width="720" height="480" alt="Save the Date" decoding="async">
+      <span class="h-glow" aria-hidden="true"></span>
+      <span class="h-sp" style="left:19%;top:15.8%" aria-hidden="true">✦</span><span class="h-sp" style="right:17.5%;top:19.7%" aria-hidden="true">✦</span><span class="h-sp sm" style="left:26%;top:31%" aria-hidden="true">✦</span><span class="h-sp sm" style="right:25%;top:12.1%" aria-hidden="true">✦</span>
+      <p class="h-top" data-ta="பரிசுத்த மெய்விவாகம்">The Wedding of</p>
+      <img class="h-mono" src="hero-mono.png" width="397" height="408" alt="I and P monogram" decoding="async">
+      <img class="std-art" src="save-the-date.png" width="720" height="447" alt="Save the Date" decoding="async">
+      <p class="h-names">S. IMMANUEL &amp; P. PREETHI</p>
+      <div class="h-gl">
+        <div><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg><span><small data-ta="நாள்">Date</small><b data-ta="திங்கள், 7 டிசம்பர் 2026">Monday, 7 December 2026</b></span></div>
+        <div><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span><small data-ta="பரிசுத்த மெய்விவாகம்">Holy Wedding</small><b data-ta="மாலை 05:00 மணி">05:00 PM</b></span></div>
+        <div><svg class="ico" aria-hidden="true"><use href="#i-dine"/></svg><span><small data-ta="அன்பின் உபசரிப்பு">Reception</small><b data-ta="மாலை 07:30 மணி">07:30 PM</b></span></div>
+        <div><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span><small data-ta="இடம்">Venue</small><b data-ta="தண்டையார்பேட்டை, சென்னை">Tondiarpet, Chennai</b></span></div>
+      </div>
+      <p class="h-hint"><span class="dot"></span><span data-ta="கீழே நகர்த்தி, தொடவும்">Scroll &amp; tap to open</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></p>
+      <img class="h-rose r" src="rose-r.jpg" width="200" height="410" alt="" decoding="async">
+      <img class="h-rose l" src="rose-l.jpg" width="190" height="360" alt="" decoding="async">
       <h1 class="sr-only" id="h-hero" data-ta="இம்மானுவேல் &amp; பிரித்தி – நாள் குறித்துக் கொள்ளுங்கள்: திங்கள், 7 டிசம்பர் 2026">Immanuel &amp; Preethi – Save the Date: Monday, 7 December 2026</h1>
     </div>
-    <div class="frame glance rv">
-      <i></i><i></i><i></i><i></i>
-      <div><svg class="ico"><use href="#i-cal"/></svg><span><small data-ta="நாள்">Date</small><b data-ta="திங்கள், 7 டிசம்பர் 2026">Monday, 7 December 2026</b></span></div>
-      <div><svg class="ico"><use href="#i-clock"/></svg><span><small data-ta="பரிசுத்த மெய்விவாகம்">Holy Wedding</small><b data-ta="மாலை 05:00 மணி">05:00 PM</b></span></div>
-      <div><svg class="ico"><use href="#i-dine"/></svg><span><small data-ta="அன்பின் உபசரிப்பு">Reception</small><b data-ta="மாலை 07:30 மணி">07:30 PM</b></span></div>
-      <div><svg class="ico"><use href="#i-pin"/></svg><span><small data-ta="இடம்">Venue</small><b data-ta="தண்டையார்பேட்டை, சென்னை">Tondiarpet, Chennai</b></span></div>
-    </div>
-    <p class="hint" data-ta="கீழே சென்று தொடவும்">Scroll and tap to open</p>
   </section>
 
   <div class="orn" aria-hidden="true"><span class="row"><svg class="ico"><use href="#i-olive"/></svg><img class="rings" src="rings.png" width="40" height="40" alt=""><svg class="ico" style="transform:scaleX(-1)"><use href="#i-olive"/></svg></span></div>
@@ -504,26 +545,6 @@ button.btn { background: transparent; cursor: pointer; }
   }
   langBtns.forEach(function (b) { b.addEventListener('click', function () { applyLang(b.dataset.l); }); });
 
-  /* hero: mandala petals, stars, olive leaves */
-  var m1 = document.getElementById('mand1');
-  for (var i = 0; i < 16; i++) el('ellipse', { cx: 170, cy: 150 - 74, rx: 7, ry: 22, transform: 'rotate(' + (i * 22.5) + ' 170 150)' }, m1);
-  var st = document.getElementById('stars');
-  [[60,110,0],[282,96,1.2],[96,60,.6],[246,58,1.8],[40,190,2.2],[300,200,.3],[170,40,1.4],[130,34,2.6],[212,36,.9]].forEach(function (s) {
-    var c = el('use', { href: '#i-spark', x: s[0] - 5, y: s[1] - 5, width: 10, height: 10 }, st); c.setAttribute('class', 'tw'); c.style.setProperty('--d', s[2] + 's'); c.setAttribute('fill', '#ebae55');
-  });
-  function leaves(pathId, gId, side) {
-    var p = document.getElementById(pathId), g = document.getElementById(gId), L = p.getTotalLength(), n = 11;
-    for (var i = 1; i <= n; i++) {
-      var t = i / (n + 1) * L, a = p.getPointAtLength(t), b = p.getPointAtLength(Math.min(L, t + 1));
-      var ang = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI, flip = i % 2 ? 1 : -1;
-      var grp = el('g', { transform: 'translate(' + a.x + ' ' + a.y + ') rotate(' + (ang + flip * 52) + ')' }, g);
-      var u = el('use', { href: '#leaf', width: 17, height: 8.5, y: -4.25 }, grp); u.setAttribute('class', 'lf'); u.style.setProperty('--i', i);
-    }
-    var tip = p.getPointAtLength(L), grp2 = el('g', { transform: 'translate(' + tip.x + ' ' + tip.y + ') rotate(' + (side > 0 ? -50 : -130) + ')' }, g);
-    var u2 = el('use', { href: '#leaf', width: 22, height: 11, y: -5.5 }, grp2); u2.setAttribute('class', 'lf'); u2.style.setProperty('--i', n + 1);
-  }
-  leaves('brL', 'leavesL', 1); leaves('brR', 'leavesR', -1);
-  requestAnimationFrame(function () { document.getElementById('hero').classList.add('go'); });
 
   /* scroll reveal (transform only) */
   var rv = [].slice.call(document.querySelectorAll('.rv'));
@@ -566,6 +587,13 @@ button.btn { background: transparent; cursor: pointer; }
   }
   if (!still) requestAnimationFrame(step);
 
+  /* keep an opened or closed card nicely placed: centred when it fits the screen, otherwise its top near the top edge */
+  function focusSec(sec) {
+    var r = sec.getBoundingClientRect(), vh = window.innerHeight;
+    var y = r.height <= vh - 24 ? window.scrollY + r.top - (vh - r.height) / 2 : window.scrollY + r.top - 12;
+    window.scrollTo({ top: Math.max(0, y), behavior: still ? 'auto' : 'smooth' });
+  }
+
   /* toggles */
   function wire(sectionId, btnSel, count, isCard) {
     var sec = document.getElementById(sectionId), btn = sec.querySelector(btnSel), closeBtn = sec.querySelector('.btn-close');
@@ -580,11 +608,8 @@ button.btn { background: transparent; cursor: pointer; }
       if (open) {
         burst(r.left + r.width / 2, r.top + r.height / 2, count);
         setTimeout(function () { burst(r.left + r.width / 2, r.top + r.height * .35, Math.round(count / 2)); }, 600);
-        if (isCard) setTimeout(function () {   /* bring the lower part of the card into view if it is cut off */
-          var c = sec.querySelector('.rcard').getBoundingClientRect(), over = c.bottom - window.innerHeight + 24;
-          if (over > 0) window.scrollBy({ top: Math.min(over, Math.max(0, c.top - 12)), behavior: still ? 'auto' : 'smooth' });
-        }, 1000);
-      } else if (fromClose) { btn.focus({ preventScroll: true }); }
+        setTimeout(function () { focusSec(sec); }, 1050);
+      } else if (fromClose) { btn.focus({ preventScroll: true }); setTimeout(function () { focusSec(sec); }, 1000); }
     }
     btn.addEventListener('click', function () { set(!sec.classList.contains('is-open'), false); });
     if (closeBtn) closeBtn.addEventListener('click', function () { set(false, true); });

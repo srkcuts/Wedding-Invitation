@@ -5,7 +5,8 @@ Folder contents (ellam ONE folder-la irukkanum):
   invite.mp4     - video that appears when the seal is broken
   poster.jpg     - video placeholder picture
   og-image.jpg   - WhatsApp preview picture (1200x630)
-  music.mp3      - background music (seal odaicha udane start aagum)
+  music.mp3      - background music (cover tap pannadhum start aagum)
+  save-the-date.png, rings.png, couple.png, gazebo.png, hero-mono.png, rose-r.jpg, rose-l.jpg - design pictures (ellam venum)
 
 GitHub Pages-la host panna:
   1. GitHub-la pudhu repository: name = Wedding-Invitation  (PUBLIC, private-na Pages work aagaadhu)
