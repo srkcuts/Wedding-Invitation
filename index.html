@@ -270,7 +270,7 @@ body { background-image: radial-gradient(70% 38% at 50% 0%, rgba(222,160,160,.38
 button.btn { background: transparent; cursor: pointer; }
 
 /* full-screen cover */
-.cover { position: fixed; inset: 0; z-index: 30; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 16px; text-align: center; background: linear-gradient(rgba(246,236,220,.95), rgba(246,236,220,.98)), url(poster.jpg) center / cover; transition: opacity .9s ease, transform .9s ease; }
+.cover { position: fixed; inset: 0; z-index: 30; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 16px; text-align: center; background: radial-gradient(80% 45% at 50% 0%, rgba(222,160,160,.35), transparent 75%), radial-gradient(80% 35% at 50% 100%, rgba(150,160,110,.25), transparent 75%), var(--bg); transition: opacity .9s ease, transform .9s ease; }
 .cover.gone { opacity: 0; transform: scale(1.04); pointer-events: none; }
 .cover[hidden] { display: none; }
 .cover .lang { position: absolute; top: max(18px, env(safe-area-inset-top)); }
@@ -286,6 +286,12 @@ button.btn { background: transparent; cursor: pointer; }
 .cover-tap { font-family: var(--font-label); font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold-hi); padding-left: .3em; }
 :root[lang="ta"] .cover-tap { letter-spacing: .03em; text-transform: none; font-size: 15px; padding-left: 0; }
 .cv-open .snd { visibility: hidden; }
+
+/* new Save the Date art + picture icons */
+.hero-arch img.std-art { position: absolute; left: 21%; top: 59%; width: 58%; height: auto; animation: stdIn 1.5s cubic-bezier(.2,.7,.2,1) .5s both; filter: drop-shadow(0 2px 4px rgba(120,20,20,.18)); }
+.rings { width: 40px; height: 40px; object-fit: contain; flex: none; }
+.rings.cover-rings { width: 72px; height: 72px; }
+.mi { display: block; width: 44px; height: 44px; background: #f3d9a0; -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; }
 </style>
 </head>
 <body>
@@ -350,18 +356,7 @@ button.btn { background: transparent; cursor: pointer; }
           <use class="fl" style="--i:3" href="#flower" x="252" y="262" width="26" height="26" fill="#f7f0e6"/>
         </g>
       </svg>
-      <svg class="std-art" viewBox="0 0 300 200" role="img" aria-label="Save the Date">
-        <g fill="none" stroke="#ebae55" stroke-width="1.7" stroke-linecap="round">
-          <path d="M46 24l-9-7M41 38l-12-1M58 15l-3-10"/>
-          <path d="M268 140l10-5M270 153l12 1"/>
-          <path d="M30 188C96 174 200 198 272 174"/>
-        </g>
-        <g font-family="'Great Vibes', 'Pinyon Script', cursive" text-anchor="middle" stroke-linejoin="round">
-          <text x="140" y="86" font-size="92" fill="#ebae55" stroke="#ebae55" stroke-width="1.4">Save</text>
-          <text x="244" y="120" font-size="25" fill="#f7f0e6" stroke="#f7f0e6" stroke-width=".5">the</text>
-          <text x="150" y="162" font-size="98" fill="#ebae55" stroke="#ebae55" stroke-width="1.4">Date</text>
-        </g>
-      </svg>
+      <img class="std-art" src="save-the-date.png" width="720" height="480" alt="Save the Date" decoding="async">
       <h1 class="sr-only" id="h-hero" data-ta="இம்மானுவேல் &amp; பிரித்தி – நாள் குறித்துக் கொள்ளுங்கள்: திங்கள், 7 டிசம்பர் 2026">Immanuel &amp; Preethi – Save the Date: Monday, 7 December 2026</h1>
     </div>
     <div class="frame glance rv">
@@ -374,7 +369,7 @@ button.btn { background: transparent; cursor: pointer; }
     <p class="hint" data-ta="கீழே சென்று தொடவும்">Scroll and tap to open</p>
   </section>
 
-  <div class="orn" aria-hidden="true"><span class="row"><svg class="ico"><use href="#i-olive"/></svg><svg class="ico mid"><use href="#i-rings"/></svg><svg class="ico" style="transform:scaleX(-1)"><use href="#i-olive"/></svg></span></div>
+  <div class="orn" aria-hidden="true"><span class="row"><svg class="ico"><use href="#i-olive"/></svg><img class="rings" src="rings.png" width="40" height="40" alt=""><svg class="ico" style="transform:scaleX(-1)"><use href="#i-olive"/></svg></span></div>
 
   <!-- envelope -->
   <section id="s-env" aria-labelledby="h-env">
@@ -404,7 +399,7 @@ button.btn { background: transparent; cursor: pointer; }
     <div class="frame rcard">
       <i></i><i></i><i></i><i></i>
       <h2 class="rc-h" id="h-church"><button class="trigger rc-btn" type="button" aria-expanded="false" aria-controls="church-panel">
-        <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-church"/></svg></span>
+        <span class="badge"><i class="mi" style="--m:url(couple.png)" aria-hidden="true"></i></span>
         <span class="rc-title" data-ta="பரிசுத்த மெய்விவாகம்">Holy Wedding Ceremony</span>
         <span class="tap"><span class="dot"></span><span class="tap-t" data-ta="நேரம் மற்றும் இடம் அறிய தொடவும்">Tap for timing &amp; venue</span></span>
       </button></h2>
@@ -428,7 +423,7 @@ button.btn { background: transparent; cursor: pointer; }
     <div class="frame rcard">
       <i></i><i></i><i></i><i></i>
       <h2 class="rc-h" id="h-hall"><button class="trigger rc-btn" type="button" aria-expanded="false" aria-controls="hall-panel">
-        <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-dine"/></svg></span>
+        <span class="badge"><i class="mi" style="--m:url(gazebo.png)" aria-hidden="true"></i></span>
         <span class="rc-title" data-ta="அன்பின் உபசரிப்பு">Reception</span>
         <span class="tap"><span class="dot"></span><span class="tap-t" data-ta="விவரங்களுக்கு தொடவும்">Tap for details</span></span>
       </button></h2>
@@ -476,7 +471,7 @@ button.btn { background: transparent; cursor: pointer; }
 <div class="cover" id="cover" role="dialog" aria-modal="true" aria-label="Invitation cover">
   <div class="lang" role="group" aria-label="Language / மொழி"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="ta" aria-pressed="false">தமிழ்</button></div>
   <div class="cover-in">
-    <svg class="cross-ico" viewBox="0 0 24 34" aria-hidden="true" style="fill:var(--gold-hi)"><use href="#cross"/></svg>
+    <img class="rings cover-rings" src="rings.png" width="72" height="72" alt="">
     <p class="eyebrow" data-ta="பரிசுத்த மெய்விவாக அழைப்பிதழ்">Holy Wedding Invitation</p>
     <h2 class="cover-names" style="font-weight:400">Immanuel<span>&amp;</span>Preethi</h2>
     <p class="cover-date" data-ta="திங்கள், 7 டிசம்பர் 2026">Monday, 7 December 2026</p>
@@ -575,7 +570,7 @@ button.btn { background: transparent; cursor: pointer; }
   function wire(sectionId, btnSel, count, isCard) {
     var sec = document.getElementById(sectionId), btn = sec.querySelector(btnSel), closeBtn = sec.querySelector('.btn-close');
     var tapT = sec.querySelector('.tap-t');
-    function tapLabel() { if (tapT) tapT.textContent = sec.classList.contains('is-open') ? (lang === 'ta' ? 'மூட தொடவும்' : 'Tap to close') : tapT.dataset[lang]; }
+    function tapLabel() { if (tapT) tapT.innerHTML = sec.classList.contains('is-open') ? (lang === 'ta' ? 'மூட தொடவும்' : 'Tap to close') : tapT.dataset[lang]; }
     refreshers.push(tapLabel);
     function set(open, fromClose) {
       var r = btn.getBoundingClientRect();
